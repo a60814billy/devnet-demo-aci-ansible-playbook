@@ -15,4 +15,5 @@
         password: "{{ lookup('ansible.builtin.env', 'ANSIBLE_NET_PASSWORD') }}"
         tenant: "{{ tenant  }}"
         state: present
+        validate_certs: no
       delegate_to: localhost
