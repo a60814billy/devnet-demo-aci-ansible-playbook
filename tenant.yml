@@ -1,0 +1,19 @@
+---
+- name: Deploy Tenant
+  hosts: all
+  connection: local
+  gather_facts: no
+  vars_prompt:
+    - name: "tenant"
+      prompt: "What would you like to name your Tenant?"
+      private: no
+  tasks:
+    - name: ensure tenant exists
+      aci_tenant:
+        host: "{{ ansible_host }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        state: "present"
+        validate_certs: False
+        tenant: "{{ tenant }}"
+        description: "Tenant Created Using Ansible"
