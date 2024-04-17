@@ -8,12 +8,12 @@
       prompt: "What would you like to name your Tenant?"
       private: no
   tasks:
-    - name: ensure tenant exists
-      aci_tenant:
-        host: "{{ ansible_host }}"
-        state: "present"
-        validate_certs: False
-        tenant: "{{ tenant }}"
-        description: "Tenant Created Using Ansible"
+    - name: Add a new tenant
+      cisco.aci.aci_tenant:
+        host: "{{ inventory_hostname }}"
+        username: "{{ lookup('ansible.builtin.env', 'ANSIBLE_NET_USERNAME') }}"
+        username: "{{ lookup('ansible.builtin.env', 'ANSIBLE_NET_PASSWORD') }}"
+        tenant: "{{ tenant  }}"
+        state: present
       delegate_to: localhost
 
