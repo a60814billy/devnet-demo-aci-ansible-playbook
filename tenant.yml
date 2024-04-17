@@ -9,11 +9,10 @@
       private: no
   tasks:
     - name: Add a new tenant
-      cisco.aci.aci_tenant:
+      aci_tenant:
         host: "{{ inventory_hostname }}"
         username: "{{ lookup('ansible.builtin.env', 'ANSIBLE_NET_USERNAME') }}"
         username: "{{ lookup('ansible.builtin.env', 'ANSIBLE_NET_PASSWORD') }}"
         tenant: "{{ tenant  }}"
         state: present
       delegate_to: localhost
-
