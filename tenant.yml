@@ -11,8 +11,8 @@
     - name: ensure tenant exists
       aci_tenant:
         host: "{{ ansible_host }}"
-        username: "{{ username }}"
-        password: "{{ password }}"
+        username: "{{ ansible_user }}"
+        password: "{{ ansible_pass }}"
         state: "present"
         validate_certs: False
         tenant: "{{ tenant }}"
