@@ -15,3 +15,5 @@
         validate_certs: False
         tenant: "{{ tenant }}"
         description: "Tenant Created Using Ansible"
+      delegate_to: localhost
+
